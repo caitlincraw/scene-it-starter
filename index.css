@@ -14,3 +14,36 @@ body {
 	margin-top: 20px;
 }
 
+.movies-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.movie-card {
+	background: white;
+}
+
+.add-button {
+	background: rgba(0, 112, 255, 1);
+	color: white;
+	border-radius: 5px;
+	border: none;
+	font-size: 14px;
+}
+
+.movie-card-body {
+	padding: 10px;
+}
+
+.movie-card-title {
+	display: inline;
+}
+
+.movie-card-release-date {
+	display: inline;
+	padding: 5px;
+	background: grey;
+	color: white;
+}
+
