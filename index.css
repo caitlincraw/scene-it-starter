@@ -22,6 +22,7 @@ body {
 
 .movie-card {
 	background: white;
+	margin: 5px;
 }
 
 .add-button {
@@ -42,8 +43,9 @@ body {
 
 .movie-card-release-date {
 	display: inline;
-	padding: 5px;
+	padding: 0 5px 0 5px;
 	background: grey;
+	border-radius: 5px;
 	color: white;
 }
 
