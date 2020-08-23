@@ -19,5 +19,10 @@ $(document).ready( () => {
         return movieHTMLs.join("");
     }
     
+
+   $("#search-form").submit((e) => {
+    e.preventDefault();
     $(".movies-container").html(renderMovies(movieData));
-});
+   });
+
+})
