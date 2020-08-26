@@ -10,7 +10,7 @@ $(document).ready( () => {
                 <div class="movie-card-body">
                     <h5 class="movie-card-title">${currentMovie.Title}</h5>
                     <p class="movie-card-release-date">${currentMovie.Year}</p>
-                <button type="button" class="add-button">Add!</a>
+                <button type="button" onclick="saveToWatchlist('${currentMovie.imdbID}')" class="add-button">Add!</a>
                 </div>
             </div>`
 
@@ -26,3 +26,18 @@ $(document).ready( () => {
    });
 
 })
+
+function saveToWatchlist(imdbID) {
+    var movie = movieData.find((currentMovie) => {
+        return currentMovie.imdbID == imdbID;
+    });
+
+    var watchlistJSON = localStorage.getItem("watchlist");
+    var watchlist = JSON.parse(watchlistJSON);
+    if (watchlist === null) {
+        watchlist = [];
+    }
+    watchlist.push(movie);
+    watchlistJSON = JSON.stringify(watchlist);
+    localStorage.setItem("watchlist", watchlistJSON);
+}
