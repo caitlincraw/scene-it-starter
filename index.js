@@ -10,7 +10,7 @@ $(document).ready( () => {
                 <div class="movie-card-body">
                     <h5 class="movie-card-title">${currentMovie.Title}</h5>
                     <p class="movie-card-release-date">${currentMovie.Year}</p>
-                <button type="button" onclick="saveToWatchlist('${currentMovie.imdbID}')" class="add-button">Add!</a>
+                <button type="button" onclick="saveToWatchlist('${currentMovie.imdbID}')" class="add-button">Add!</button>
                 </div>
             </div>`
 

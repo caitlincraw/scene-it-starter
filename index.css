@@ -49,3 +49,8 @@ body {
 	color: white;
 }
 
+#watchlist {
+	text-align: right;
+	padding: 5px;
+}
+
