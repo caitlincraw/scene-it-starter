@@ -2,7 +2,7 @@ $(document).ready( () => {
     console.log("jQuery is Running")
 
     function renderMovies(movieArray) {
-        var movieHTMLs = movieArray.map((currentMovie) => {
+        let movieHTMLs = movieArray.map((currentMovie) => {
             // console.log(currentMovie);
             // console.log(currentMovie.Title);
             return `<div class="movie-card" style="width: 200px;">
@@ -22,18 +22,29 @@ $(document).ready( () => {
 
    $("#search-form").submit((e) => {
     e.preventDefault();
-    $(".movies-container").html(renderMovies(movieData));
+
+    let searchString = $(".search-bar").val();
+    // console.log(searchString);
+    let urlEncodedSearchString = encodeURIComponent(searchString); // turns spaces into %20
+    // console.log(urlEncodedSearchString);
+    fetch(`http://www.omdbapi.com/?apikey=8534d2a7&s=${urlEncodedSearchString}`)
+        .then(response => response.json())
+        .then((response) => {
+            console.log(response);
+            console.log(response.Search);
+            $(".movies-container").html(renderMovies(response.Search));
+        })
    });
 
 })
 
 function saveToWatchlist(imdbID) {
-    var movie = movieData.find((currentMovie) => { //find method only returns a single element; use filter method if want to return multiple values
+    let movie = movieData.find((currentMovie) => { //find method only returns a single element; use filter method if want to return multiple values
         return currentMovie.imdbID === imdbID; //compares currentMovie.imdb and returns value only if the same as currentMovie.imdbID within the onclick event
     });
 
-    var watchlistJSON = localStorage.getItem("watchlist"); //getItem returns a string that represents the key value, in this case the "watchlist"
-    var watchlist = JSON.parse(watchlistJSON); //since have a string, need to parse out specific values of the array
+    let watchlistJSON = localStorage.getItem("watchlist"); //getItem returns a string that represents the key value, in this case the "watchlist"
+    let watchlist = JSON.parse(watchlistJSON); //since have a string, need to parse out specific values of the array
     if (watchlist === null) { //this if statement just creates the watchlist array on the first click of an add button
         watchlist = [];
     }
