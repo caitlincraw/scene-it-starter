@@ -14,3 +14,43 @@ body {
 	margin-top: 20px;
 }
 
+.movies-container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.movie-card {
+	background: white;
+	margin: 5px;
+}
+
+.add-button {
+	background: rgba(0, 112, 255, 1);
+	color: white;
+	border-radius: 5px;
+	border: none;
+	font-size: 14px;
+}
+
+.movie-card-body {
+	padding: 10px;
+}
+
+.movie-card-title {
+	display: inline;
+}
+
+.movie-card-release-date {
+	display: inline;
+	padding: 0 5px 0 5px;
+	background: grey;
+	border-radius: 5px;
+	color: white;
+}
+
+#watchlist {
+	text-align: right;
+	padding: 5px;
+}
+
