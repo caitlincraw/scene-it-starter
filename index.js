@@ -21,7 +21,7 @@ $(document).ready( () => {
 
     let searchString = $(".search-bar").val();
     let urlEncodedSearchString = encodeURIComponent(searchString); // turns spaces into %20
-    fetch(`http://www.omdbapi.com/?apikey=8534d2a7&s=${urlEncodedSearchString}`)
+    fetch(`https://www.omdbapi.com/?apikey=8534d2a7&s=${urlEncodedSearchString}`)
         .then(response => response.json())
         .then((response) => {
             $(".movies-container").html(renderMovies(response.Search));
@@ -31,7 +31,7 @@ $(document).ready( () => {
 })
 
 function saveToWatchlist(imdbID) {
-    fetch(`http://www.omdbapi.com/?apikey=8534d2a7&i=${imdbID}`)
+    fetch(`https://www.omdbapi.com/?apikey=8534d2a7&i=${imdbID}`)
         .then(response => response.json())
         .then((response) => {
             let watchlistJSON = localStorage.getItem("watchlist");
